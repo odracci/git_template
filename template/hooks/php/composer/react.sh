@@ -23,7 +23,7 @@ function react()
 				fi
 				;;
 			run)
-				composer install
+				composer install --no-scripts
 				;;
 			*)
 				echo "composer.onChange value should be just_warn or run" >&2
