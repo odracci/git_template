@@ -1,0 +1,16 @@
+#!/bin/bash
+. "$GIT_DIR/hooks/change_detector.sh"
+. "$GIT_DIR/hooks/npm/install_npm.sh"
+. "$GIT_DIR/hooks/git_config_wrapper.sh"
+
+if [ -f package.json ]
+then
+	if has_changed post-checkout package.json
+	then
+        install_npm
+    fi
+else
+	echo "no package.json found!"
+fi
+
+
